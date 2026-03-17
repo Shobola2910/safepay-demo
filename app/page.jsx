@@ -104,8 +104,8 @@ export default function HomePage() {
     <main
       className="site-page"
       id="top"
-      onMouseMove={handlePointerMove}
-      onMouseLeave={handlePointerLeave}
+      const handlePointerMove = (event) => { ... }
+      const handlePointerLeave = (event) => { ... }
     >
       <header className="site-nav">
         <SafePayLogo compact />
