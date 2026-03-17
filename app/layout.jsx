@@ -2,7 +2,12 @@ import './globals.css';
 
 export const metadata = {
   title: 'SafePay.uz',
-  description: 'Wearable and contactless payment website concept for SafePay.uz.',
+  description: 'SafePay wearable and contactless payment platform.',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
 };
 
 export default function RootLayout({ children }) {
