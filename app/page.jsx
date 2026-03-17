@@ -1,66 +1,109 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import SafePayLogo from '../components/safe-pay-logo';
-import { CardOrbitVisual, PaymentVisual, RingPulseVisual, SecurityVisual } from '../components/visuals';
+'use client';
 
-const valueCards = [
+import SafePayLogo from '../components/safe-pay-logo';
+import {
+  CardOrbitVisual,
+  PaymentVisual,
+  RingPulseVisual,
+  SecurityVisual,
+} from '../components/visuals';
+
+const trustItems = [
   {
-    title: 'Wearable-first payments',
-    text: 'Build the story around the ring and smartwatch experience, not around another generic wallet homepage.',
+    title: 'Wearable-first',
+    text: 'Ring, watch and contactless payment experience in one clean system.',
   },
   {
-    title: 'Control in one place',
-    text: 'Card assignment, instant freeze, activity history and device controls should feel simple from the first screen.',
+    title: 'Built for trust',
+    text: 'Fast approvals, visible controls, card safety and simple support flow.',
   },
   {
-    title: 'Consumer + merchant clarity',
-    text: 'A strong payment website should explain value for users and for businesses without making the page feel crowded.',
+    title: 'Business-ready',
+    text: 'Merchant onboarding, payment visibility and clear product structure.',
   },
 ];
 
-const pillars = [
+const valueCards = [
   {
-    label: 'For users',
-    title: 'Tap, track, and manage',
-    text: 'Show a fast payment experience, clear card control, and a smooth flow from onboarding to transaction history.',
+    title: 'Clearer than a generic wallet site',
+    text: 'SafePay should open with a strong brand story around wearables, not with a crowded wall of features.',
   },
   {
-    label: 'For business',
-    title: 'Merchant-ready structure',
-    text: 'Keep merchant onboarding, QR acceptance, transaction monitoring and support visible as dedicated business value.',
+    title: 'Modern for users',
+    text: 'Users should instantly understand how to connect a card, pair a device and pay in seconds.',
   },
   {
-    label: 'For trust',
-    title: 'Security that is easy to understand',
-    text: 'Explain verification, anti-fraud actions, device freeze, lost mode and secure approvals with plain language.',
+    title: 'Serious for business',
+    text: 'Merchants and partners should quickly see support, reporting, acceptance and operational confidence.',
+  },
+];
+
+const experienceCards = [
+  {
+    title: 'Control center',
+    text: 'Manage cards, freeze devices, track payments and control every connected wearable from one place.',
+  },
+  {
+    title: 'Fast onboarding',
+    text: 'A short, premium flow from account setup to first successful payment.',
+  },
+  {
+    title: 'Visible security',
+    text: 'Security should feel built-in, understandable and always close to the user.',
   },
 ];
 
 const steps = [
-  'Create your SafePay profile',
+  'Create your SafePay account',
   'Add and verify a payment card',
   'Pair a ring or wearable device',
-  'Tap to pay and manage everything from the app',
+  'Tap to pay and manage everything in one place',
 ];
 
 const faqItems = [
   {
-    q: 'What makes this website direction stronger?',
-    a: 'It keeps the trust-building structure of a payment brand, but shifts the homepage around SafePay’s actual advantage: wearable payment control.',
+    q: 'What is the main idea of this website?',
+    a: 'A clean, modern website focused on SafePay as a wearable payment platform, not just another fintech landing page.',
   },
   {
-    q: 'Why not copy other payment sites directly?',
-    a: 'Because SafePay needs a sharper identity. The goal is to learn from strong patterns and then present a cleaner, more focused brand story.',
+    q: 'Why is this version better for launch?',
+    a: 'It gives more space, stronger visuals, clearer hierarchy and more confidence for both users and businesses.',
   },
   {
     q: 'Can this become the real launch website later?',
-    a: 'Yes. The layout is designed so you can later add pricing, merchant onboarding, app download links, FAQs, terms and a full product demo.',
+    a: 'Yes. This structure is made to grow into the real production website with downloads, terms, merchant pages and live integrations.',
   },
 ];
 
 export default function HomePage() {
+  const handlePointerMove = (event) => {
+    const root = event.currentTarget;
+    const rect = root.getBoundingClientRect();
+
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 26;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 22;
+
+    root.style.setProperty('--mx', `${x.toFixed(2)}px`);
+    root.style.setProperty('--my', `${y.toFixed(2)}px`);
+    root.style.setProperty('--rx', `${(-y * 0.35).toFixed(2)}deg`);
+    root.style.setProperty('--ry', `${(x * 0.35).toFixed(2)}deg`);
+  };
+
+  const handlePointerLeave = (event) => {
+    const root = event.currentTarget;
+    root.style.setProperty('--mx', '0px');
+    root.style.setProperty('--my', '0px');
+    root.style.setProperty('--rx', '0deg');
+    root.style.setProperty('--ry', '0deg');
+  };
+
   return (
-    <main className="site-page" id="top">
+    <main
+      className="site-page"
+      id="top"
+      onMouseMove={handlePointerMove}
+      onMouseLeave={handlePointerLeave}
+    >
       <header className="site-nav">
         <SafePayLogo compact />
         <nav className="site-nav__links">
@@ -68,64 +111,84 @@ export default function HomePage() {
           <a href="#experience">Experience</a>
           <a href="#business">Business</a>
           <a href="#faq">FAQ</a>
-          <Link href="/demo/dashboard" className="btn btn--secondary btn--small">Preview demo</Link>
+          <a href="#contact" className="btn btn--secondary btn--small">
+            Contact
+          </a>
         </nav>
       </header>
 
       <section className="site-hero">
         <div className="site-hero__copy">
-          <div className="eyebrow">SafePay.uz • wearable payment website concept</div>
+          <div className="eyebrow">SAFEPAY.UZ • WEARABLE PAYMENT PLATFORM</div>
+
           <h1>
-            A cleaner payment website for a brand built around rings, wearables, and fast everyday taps.
+            Contactless payments,
+            <br />
+            designed around
+            <br />
+            speed, control
+            <br />
+            and everyday use.
           </h1>
+
           <p>
-            SafePay should feel modern, secure and instantly understandable. This concept keeps the trust of a serious
-            fintech brand while making the wearable payment idea the center of the story.
+            SafePay brings card control, wearable access and fast payment into one
+            modern experience. The website should feel clean, strong and instantly
+            understandable from the first screen.
           </p>
 
           <div className="site-hero__actions">
-            <a href="#why" className="btn btn--primary btn--large">Explore website</a>
-            <Link href="/demo/dashboard" className="btn btn--secondary btn--large">Open product preview</Link>
+            <a href="#experience" className="btn btn--primary btn--large interactive" style={{ '--depth': '.14' }}>
+              Explore experience
+            </a>
+            <a href="#business" className="btn btn--secondary btn--large interactive" style={{ '--depth': '.1' }}>
+              For business
+            </a>
           </div>
 
           <div className="site-trust-strip">
-            <div>
-              <strong>Device-first</strong>
-              <span>Ring and wearable payment positioning</span>
-            </div>
-            <div>
-              <strong>Clear trust</strong>
-              <span>Security and support made visible</span>
-            </div>
-            <div>
-              <strong>Business-ready</strong>
-              <span>Merchant and transaction flow sections</span>
-            </div>
+            {trustItems.map((item, index) => (
+              <div
+                key={item.title}
+                className="interactive"
+                style={{ '--depth': `${0.08 + index * 0.03}` }}
+              >
+                <strong>{item.title}</strong>
+                <span>{item.text}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="site-hero__visuals">
-          <div className="site-showcase site-showcase--main">
+          <div className="site-showcase site-showcase--main interactive" style={{ '--depth': '.22' }}>
             <div className="site-showcase__label">Brand focus</div>
-            <div className="site-showcase__wordmark">
-              <Image src="/safepay-wordmark-transparent.png" alt="SafePay.uz logo" width={776} height={200} priority />
-            </div>
+            <SafePayLogo />
             <p>
-              The homepage should open with a stronger brand image, not with crowded feature overload.
+              Black background, strong spacing, focused visuals and a cleaner
+              wearable payment story.
             </p>
+
+            <div className="site-mini-badges">
+              <span>Wearable-first</span>
+              <span>Fast checkout</span>
+              <span>Secure controls</span>
+            </div>
           </div>
 
           <div className="site-showcase-grid">
-            <div className="site-showcase">
-              <div className="site-showcase__label">Wearable payment</div>
+            <div className="site-showcase interactive" style={{ '--depth': '.18' }}>
+              <div className="site-showcase__label">Ring payment</div>
               <RingPulseVisual />
             </div>
-            <div className="site-showcase">
-              <div className="site-showcase__label">Checkout moment</div>
+
+            <div className="site-showcase interactive" style={{ '--depth': '.16' }}>
+              <div className="site-showcase__label">Checkout motion</div>
               <PaymentVisual />
             </div>
-            <div className="site-showcase site-showcase--wide">
-              <div className="site-showcase__label">Card and device ecosystem</div>
+
+            <div className="site-showcase site-showcase--wide interactive" style={{ '--depth': '.2' }}>
+              <div className="site-showcase__label">Cards and device ecosystem</div>
               <CardOrbitVisual />
             </div>
           </div>
@@ -134,17 +197,25 @@ export default function HomePage() {
 
       <section id="why" className="site-section">
         <div className="site-section__intro">
-          <div className="eyebrow">What the best payment websites teach us</div>
-          <h2>SafePay should combine trust, simplicity and product focus — without looking like a copy.</h2>
+          <div className="eyebrow">WHY THIS WEBSITE DIRECTION WORKS</div>
+          <h2>
+            SafePay should look more focused, more spacious and more premium
+            without trying too hard.
+          </h2>
           <p>
-            A strong fintech homepage needs fast orientation, visible credibility, clear product value and separate space
-            for business tools. SafePay should borrow those patterns and then present them through a wearable payment lens.
+            The best payment websites are easy to scan, easy to trust and easy to
+            remember. SafePay should use those strengths while keeping its own
+            wearable identity.
           </p>
         </div>
 
         <div className="site-card-grid">
-          {valueCards.map((card) => (
-            <article key={card.title} className="site-card">
+          {valueCards.map((card, index) => (
+            <article
+              key={card.title}
+              className="site-card interactive"
+              style={{ '--depth': `${0.1 + index * 0.02}` }}
+            >
               <h3>{card.title}</h3>
               <p>{card.text}</p>
             </article>
@@ -153,26 +224,36 @@ export default function HomePage() {
       </section>
 
       <section id="experience" className="site-section site-section--split">
-        <div className="site-panel">
-          <div className="eyebrow">Ideal website structure</div>
-          <h2>One homepage, three clear layers.</h2>
+        <div className="site-panel interactive" style={{ '--depth': '.16' }}>
+          <div className="eyebrow">USER EXPERIENCE</div>
+          <h2>One website, one clear story.</h2>
+
           <div className="site-pillar-list">
-            {pillars.map((pillar) => (
-              <div key={pillar.title} className="site-pillar">
-                <span>{pillar.label}</span>
-                <strong>{pillar.title}</strong>
-                <p>{pillar.text}</p>
+            {experienceCards.map((card, index) => (
+              <div
+                key={card.title}
+                className="site-pillar interactive"
+                style={{ '--depth': `${0.08 + index * 0.02}` }}
+              >
+                <span>0{index + 1}</span>
+                <strong>{card.title}</strong>
+                <p>{card.text}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="site-panel site-panel--accent">
-          <div className="eyebrow">How the user story should flow</div>
-          <h2>From first visit to first successful payment.</h2>
+        <div className="site-panel site-panel--accent interactive" style={{ '--depth': '.18' }}>
+          <div className="eyebrow">PAYMENT FLOW</div>
+          <h2>From first visit to first payment.</h2>
+
           <div className="site-step-list">
             {steps.map((step, index) => (
-              <div key={step} className="site-step">
+              <div
+                key={step}
+                className="site-step interactive"
+                style={{ '--depth': `${0.08 + index * 0.02}` }}
+              >
                 <span>{String(index + 1).padStart(2, '0')}</span>
                 <strong>{step}</strong>
               </div>
@@ -183,44 +264,47 @@ export default function HomePage() {
 
       <section id="business" className="site-section site-section--business">
         <div className="site-business-copy">
-          <div className="eyebrow">For merchants and partners</div>
-          <h2>Give businesses a reason to trust the platform too.</h2>
+          <div className="eyebrow">FOR MERCHANTS AND PARTNERS</div>
+          <h2>SafePay should also feel strong on the business side.</h2>
           <p>
-            SafePay should not look like only a consumer app. The site should also explain merchant acceptance,
-            analytics, support, settlement visibility and future integration paths.
+            The website should clearly show that SafePay is not only a user-facing
+            payment brand. It should also communicate acceptance, support,
+            reporting, settlement visibility and future integration value.
           </p>
+
           <ul className="site-bullets">
-            <li>Merchant onboarding section with clear benefits</li>
-            <li>Transaction visibility and reporting blocks</li>
-            <li>QR and contactless payment acceptance storytelling</li>
-            <li>Support, compliance and operational trust signals</li>
+            <li>Merchant onboarding with simple structure</li>
+            <li>Fast understanding of payment acceptance options</li>
+            <li>Transaction visibility and reporting direction</li>
+            <li>Clear trust and support positioning</li>
           </ul>
         </div>
 
         <div className="site-business-stage">
-          <div className="site-dashboard-card">
+          <div className="site-dashboard-card interactive" style={{ '--depth': '.22' }}>
             <div className="site-dashboard-card__top">
-              <Image src="/safepay-mark.png" alt="SafePay mark" width={44} height={44} />
-              <div>
-                <strong>Merchant Console</strong>
-                <span>Transactions • Settlements • Support</span>
+              <div className="site-dashboard-card__brand">
+                <SafePayLogo compact />
               </div>
+              <div className="site-console-badge">Merchant Console</div>
             </div>
+
             <div className="site-dashboard-bars">
-              <div>
+              <div className="interactive" style={{ '--depth': '.08' }}>
                 <small>Acceptance</small>
-                <strong>Online / QR / Wearable</strong>
+                <strong>Online • QR • Wearable</strong>
               </div>
-              <div>
-                <small>Overview</small>
-                <strong>Live payment activity</strong>
+              <div className="interactive" style={{ '--depth': '.1' }}>
+                <small>Payments</small>
+                <strong>Live activity overview</strong>
               </div>
-              <div>
+              <div className="interactive" style={{ '--depth': '.12' }}>
                 <small>Reporting</small>
-                <strong>Daily, weekly and export-ready</strong>
+                <strong>Daily • Weekly • Export-ready</strong>
               </div>
             </div>
-            <div className="site-dashboard-card__visual">
+
+            <div className="site-dashboard-card__visual interactive" style={{ '--depth': '.12' }}>
               <SecurityVisual />
             </div>
           </div>
@@ -228,26 +312,35 @@ export default function HomePage() {
       </section>
 
       <section className="site-section">
-        <div className="site-banner">
+        <div className="site-banner interactive" style={{ '--depth': '.18' }}>
           <div>
-            <div className="eyebrow">Website tone</div>
-            <h2>Black background. Blue signal. Minimal copy. Strong confidence.</h2>
+            <div className="eyebrow">VISUAL DIRECTION</div>
+            <h2>Deeper black, stronger blue, cleaner spacing.</h2>
             <p>
-              The page should feel premium through spacing, contrast and clarity — not through heavy words or too many effects.
+              The premium feel should come from layout, contrast, motion and
+              confidence — not from overcrowded sections.
             </p>
           </div>
-          <SafePayLogo />
+
+          <div className="site-banner__visual interactive" style={{ '--depth': '.12' }}>
+            <RingPulseVisual />
+          </div>
         </div>
       </section>
 
       <section id="faq" className="site-section">
         <div className="site-section__intro">
           <div className="eyebrow">FAQ</div>
-          <h2>Questions this website already answers well.</h2>
+          <h2>What this website already explains well.</h2>
         </div>
+
         <div className="site-faq-grid">
-          {faqItems.map((item) => (
-            <article key={item.q} className="site-faq-item">
+          {faqItems.map((item, index) => (
+            <article
+              key={item.q}
+              className="site-faq-item interactive"
+              style={{ '--depth': `${0.08 + index * 0.02}` }}
+            >
               <h3>{item.q}</h3>
               <p>{item.a}</p>
             </article>
@@ -255,17 +348,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="site-cta">
+      <section id="contact" className="site-cta interactive" style={{ '--depth': '.16' }}>
         <div>
-          <div className="eyebrow">Next phase</div>
-          <h2>Website first. APK next.</h2>
+          <div className="eyebrow">NEXT STEP</div>
+          <h2>Website first. App next.</h2>
           <p>
-            This gives SafePay a cleaner homepage direction now, while keeping the product demo and future app work easy to extend.
+            This version keeps the focus on the website. After this, the same
+            visual language can continue into the real SafePay app and APK flow.
           </p>
         </div>
+
         <div className="site-cta__actions">
-          <Link href="/demo/dashboard" className="btn btn--primary btn--large">Open preview</Link>
-          <a href="#top" className="btn btn--secondary btn--large">Back to top</a>
+          <a href="#top" className="btn btn--primary btn--large interactive" style={{ '--depth': '.08' }}>
+            Back to top
+          </a>
+          <a href="mailto:hello@safepay.uz" className="btn btn--secondary btn--large interactive" style={{ '--depth': '.08' }}>
+            hello@safepay.uz
+          </a>
         </div>
       </section>
     </main>
