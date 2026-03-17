@@ -6,250 +6,247 @@ import {
   SecurityVisual,
 } from '../components/visuals';
 
-const trustItems = [
+const quickItems = [
   {
-    title: 'Fast checkout',
-    text: 'Pay in seconds with a ring, wearable or digital flow.',
+    title: 'Fast payments',
+    text: 'Pay in seconds with a wearable, card or digital flow.',
   },
   {
-    title: 'Clear control',
-    text: 'Manage cards, freeze access and monitor activity from one system.',
+    title: 'Simple control',
+    text: 'Manage cards, access and payment activity in one place.',
   },
   {
-    title: 'Built for scale',
-    text: 'Structured for users, merchants and future partner integrations.',
-  },
-];
-
-const featureCards = [
-  {
-    title: 'Wearable payment, made understandable',
-    text: 'The homepage should explain the product immediately: connect, control and pay.',
-  },
-  {
-    title: 'A serious financial look',
-    text: 'The design should feel trusted and modern without looking overloaded.',
-  },
-  {
-    title: 'More room, less noise',
-    text: 'Large sections, stronger hierarchy and clear spacing make the brand feel bigger.',
+    title: 'Built for growth',
+    text: 'Structured for users today and merchants tomorrow.',
   },
 ];
 
-const productPoints = [
+const features = [
   {
-    label: '01',
-    title: 'One website, one clear product story',
-    text: 'SafePay should feel built around wearables and contactless usage, not like a generic wallet page.',
+    title: 'Wearable-first experience',
+    text: 'SafePay should immediately show that this is more than a normal payment website.',
   },
   {
-    label: '02',
-    title: 'Made for real daily payments',
-    text: 'Transport, cafes, stores and everyday spending should be part of the story from the first screen.',
+    title: 'Clear and trusted design',
+    text: 'Large spacing, strong typography and clean contrast help the brand feel reliable.',
   },
   {
-    label: '03',
-    title: 'Ready for business later',
-    text: 'The website should already leave space for merchant acceptance, analytics and partner growth.',
+    title: 'Made for daily use',
+    text: 'Transport, stores, cafes and everyday payments should feel natural in the story.',
   },
 ];
 
-const businessItems = [
-  'Merchant onboarding structure',
-  'Acceptance for wearable and digital flows',
-  'Visible reporting and settlement direction',
-  'Support and trust positioning',
+const experience = [
+  {
+    number: '01',
+    title: 'Connect your card',
+    text: 'A simple starting point with a clear onboarding structure.',
+  },
+  {
+    number: '02',
+    title: 'Pair your wearable',
+    text: 'Bring the ring or device into the flow without confusion.',
+  },
+  {
+    number: '03',
+    title: 'Pay and manage',
+    text: 'Track payments, control access and keep everything visible.',
+  },
 ];
 
 const faqItems = [
   {
-    q: 'Why does this version feel bigger?',
-    a: 'Because the layout uses wider sections, larger hierarchy, stronger spacing and fewer cramped content blocks.',
+    q: 'Why does this version look cleaner?',
+    a: 'Because the layout uses fewer competing elements, more spacing and a stronger visual hierarchy.',
   },
   {
-    q: 'Is this closer to a real launch website?',
-    a: 'Yes. This structure is much closer to a real homepage that can later expand with pricing, downloads and business tools.',
+    q: 'Will it look good on mobile?',
+    a: 'Yes. This version is designed to collapse cleanly on phones without sections breaking apart.',
   },
   {
-    q: 'Can the app come later?',
-    a: 'Yes. For now this keeps the focus only on the SafePay website. The app flow can be built in the next stage.',
+    q: 'Can video be added later?',
+    a: 'Yes. The hero section is ready to be replaced with a large background video when you send the file.',
   },
 ];
 
 export default function HomePage() {
   return (
-    <main className="site-page" id="top">
-      <header className="site-nav">
-        <SafePayLogo compact />
-        <nav className="site-nav__links">
-          <a href="#why">Why SafePay</a>
-          <a href="#experience">Experience</a>
-          <a href="#business">Business</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact" className="btn btn--secondary btn--small">
+    <main className="site-shell">
+      <header className="topbar">
+        <div className="container topbar__inner">
+          <SafePayLogo compact />
+
+          <nav className="topbar__nav">
+            <a href="#why">Why SafePay</a>
+            <a href="#experience">Experience</a>
+            <a href="#business">Business</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+
+          <a href="#contact" className="btn btn--ghost">
             Contact
           </a>
-        </nav>
+        </div>
       </header>
 
-      <section className="hero-block">
-        <div className="hero-block__copy">
-          <div className="eyebrow">SAFEPAY.UZ • CONTACTLESS PAYMENT PLATFORM</div>
+      <section className="hero">
+        <div className="container hero__grid">
+          <div className="hero__copy">
+            <div className="eyebrow">SAFEPAY.UZ • CONTACTLESS PAYMENT PLATFORM</div>
 
-          <h1>
-            A bigger,
-            <br />
-            cleaner website
-            <br />
-            for a payment brand
-            <br />
-            built around wearables.
-          </h1>
+            <h1>
+              A cleaner payment
+              <br />
+              website for a brand
+              <br />
+              built around
+              <br />
+              wearables and speed.
+            </h1>
 
-          <p>
-            SafePay should feel modern from the first second. Large sections, strong
-            spacing, clear messaging and product-focused visuals make the website
-            feel more serious, more premium and easier to trust.
-          </p>
+            <p>
+              SafePay should feel modern, secure and instantly understandable.
+              This version keeps the brand calm, premium and focused without
+              making the page feel crowded.
+            </p>
 
-          <div className="hero-block__actions">
-            <a href="#why" className="btn btn--primary btn--large">
-              Explore website
-            </a>
-            <a href="#business" className="btn btn--secondary btn--large">
-              For business
-            </a>
+            <div className="hero__actions">
+              <a href="#why" className="btn btn--primary">
+                Explore website
+              </a>
+              <a href="#business" className="btn btn--secondary">
+                For business
+              </a>
+            </div>
           </div>
 
-          <div className="hero-trust-grid">
-            {trustItems.map((item) => (
-              <div key={item.title} className="hero-trust-card">
+          <div className="hero__stage">
+            <div className="hero-card hero-card--main">
+              <div className="card-label">Brand focus</div>
+              <SafePayLogo />
+              <p>
+                The homepage should open with clarity, confidence and strong
+                spacing — not with too many small blocks fighting each other.
+              </p>
+
+              <div className="hero-tags">
+                <span>Wearable-first</span>
+                <span>Fast checkout</span>
+                <span>Secure control</span>
+              </div>
+            </div>
+
+            <div className="hero-card-grid">
+              <div className="hero-card">
+                <div className="card-label">Ring payment</div>
+                <RingPulseVisual />
+              </div>
+
+              <div className="hero-card">
+                <div className="card-label">Checkout moment</div>
+                <PaymentVisual />
+              </div>
+
+              <div className="hero-card hero-card--wide">
+                <div className="card-label">Card and device ecosystem</div>
+                <CardOrbitVisual />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="quick-strip">
+        <div className="container quick-strip__grid">
+          {quickItems.map((item) => (
+            <div key={item.title} className="info-card">
+              <strong>{item.title}</strong>
+              <span>{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="why" className="section">
+        <div className="container">
+          <div className="section-head">
+            <div className="eyebrow">WHY THIS WEBSITE WORKS</div>
+            <h2>
+              SafePay should combine trust,
+              <br />
+              simplicity and product focus.
+            </h2>
+            <p>
+              A strong fintech website should be easy to scan, easy to trust and
+              easy to remember. This version keeps the look premium without
+              becoming too busy.
+            </p>
+          </div>
+
+          <div className="feature-grid">
+            {features.map((item) => (
+              <article key={item.title} className="feature-card">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" className="section section--split">
+        <div className="container split">
+          <div className="split__copy">
+            <div className="eyebrow">USER EXPERIENCE</div>
+            <h2>
+              One website,
+              <br />
+              one clear story.
+            </h2>
+            <p>
+              SafePay should explain the idea in large, confident sections. The
+              page needs room to breathe so the brand feels more established and
+              easier to trust.
+            </p>
+          </div>
+
+          <div className="stack-list">
+            {experience.map((item) => (
+              <div key={item.number} className="stack-card">
+                <span>{item.number}</span>
                 <strong>{item.title}</strong>
-                <span>{item.text}</span>
+                <p>{item.text}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        <div className="hero-block__stage">
-          <div className="hero-stage-main">
-            <div className="site-showcase__label">Brand direction</div>
-            <SafePayLogo />
+      <section id="business" className="section">
+        <div className="container business-grid">
+          <div className="business-copy">
+            <div className="eyebrow">FOR BUSINESS</div>
+            <h2>SafePay should already feel ready for merchants.</h2>
             <p>
-              The homepage should open with space, confidence and a clear identity,
-              not with a cramped product wall.
+              Even before the full business tools arrive, the website should show
+              direction for acceptance, support, reporting and future scale.
             </p>
 
-            <div className="hero-mini-tags">
-              <span>Wearable-first</span>
-              <span>Secure payment</span>
-              <span>Fast everyday use</span>
-            </div>
+            <ul>
+              <li>Merchant onboarding direction</li>
+              <li>Wearable and online acceptance structure</li>
+              <li>Clear support and trust positioning</li>
+              <li>Reporting-ready visual language</li>
+            </ul>
           </div>
 
-          <div className="hero-stage-grid">
-            <div className="hero-stage-card">
-              <div className="site-showcase__label">Ring payment</div>
-              <RingPulseVisual />
-            </div>
-
-            <div className="hero-stage-card">
-              <div className="site-showcase__label">Checkout flow</div>
-              <PaymentVisual />
-            </div>
-
-            <div className="hero-stage-card hero-stage-card--wide">
-              <div className="site-showcase__label">Cards and ecosystem</div>
-              <CardOrbitVisual />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="why" className="wide-section wide-section--intro">
-        <div className="wide-section__intro">
-          <div className="eyebrow">WHY THIS STRUCTURE WORKS BETTER</div>
-          <h2>
-            SafePay should feel larger, clearer and more established — even before
-            the full product launches.
-          </h2>
-        </div>
-
-        <div className="big-card-grid">
-          {featureCards.map((card) => (
-            <article key={card.title} className="big-card">
-              <h3>{card.title}</h3>
-              <p>{card.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="experience" className="split-spotlight">
-        <div className="split-spotlight__copy">
-          <div className="eyebrow">PRODUCT EXPERIENCE</div>
-          <h2>
-            The page should explain the
-            <br />
-            product in large, confident blocks.
-          </h2>
-          <p>
-            Strong payment websites do not rush everything into one small area.
-            They create clear sections for value, trust and product understanding.
-            SafePay should do the same while keeping its own visual identity.
-          </p>
-        </div>
-
-        <div className="split-spotlight__stack">
-          {productPoints.map((item) => (
-            <div key={item.title} className="stack-card">
-              <span>{item.label}</span>
-              <strong>{item.title}</strong>
-              <p>{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="statement-banner">
-        <div className="statement-banner__copy">
-          <div className="eyebrow">VISUAL LANGUAGE</div>
-          <h2>Black background. Blue signal. More breathing room.</h2>
-          <p>
-            The premium feeling should come from scale, contrast and clarity —
-            not from crowding the page with too many small blocks.
-          </p>
-        </div>
-
-        <div className="statement-banner__visual">
-          <RingPulseVisual />
-        </div>
-      </section>
-
-      <section id="business" className="business-section">
-        <div className="business-section__copy">
-          <div className="eyebrow">FOR BUSINESS</div>
-          <h2>SafePay should already look merchant-ready.</h2>
-          <p>
-            Even if the business tools come later, the website should already feel
-            prepared for integrations, acceptance, support and future reporting.
-          </p>
-
-          <ul className="site-bullets">
-            {businessItems.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="business-section__stage">
-          <div className="dashboard-panel">
-            <div className="dashboard-panel__top">
+          <div className="business-panel">
+            <div className="business-panel__top">
               <SafePayLogo compact />
-              <div className="site-showcase__label">Merchant console</div>
+              <div className="card-label">Merchant console</div>
             </div>
 
-            <div className="dashboard-panel__stats">
+            <div className="business-stats">
               <div>
                 <small>Acceptance</small>
                 <strong>Wearable • Online • QR</strong>
@@ -264,46 +261,71 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="dashboard-panel__visual">
+            <div className="business-panel__visual">
               <SecurityVisual />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="faq" className="wide-section">
-        <div className="wide-section__intro">
-          <div className="eyebrow">FAQ</div>
-          <h2>Questions this new version answers better.</h2>
-        </div>
+      <section className="section">
+        <div className="container">
+          <div className="statement">
+            <div>
+              <div className="eyebrow">VISUAL DIRECTION</div>
+              <h2>Black background. Blue signal. Cleaner spacing.</h2>
+              <p>
+                The premium feel should come from balance, contrast and layout —
+                not from forcing too many things into one screen.
+              </p>
+            </div>
 
-        <div className="faq-grid">
-          {faqItems.map((item) => (
-            <article key={item.q} className="faq-card">
-              <h3>{item.q}</h3>
-              <p>{item.a}</p>
-            </article>
-          ))}
+            <div className="statement__visual">
+              <RingPulseVisual />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="contact" className="site-cta">
-        <div>
-          <div className="eyebrow">NEXT STEP</div>
-          <h2>Website first. App later.</h2>
-          <p>
-            This version keeps the attention on the website only. After this, the
-            same visual system can continue into the SafePay mobile app.
-          </p>
-        </div>
+      <section id="faq" className="section">
+        <div className="container">
+          <div className="section-head">
+            <div className="eyebrow">FAQ</div>
+            <h2>Questions this version answers well.</h2>
+          </div>
 
-        <div className="site-cta__actions">
-          <a href="#top" className="btn btn--primary btn--large">
-            Back to top
-          </a>
-          <a href="mailto:hello@safepay.uz" className="btn btn--secondary btn--large">
-            hello@safepay.uz
-          </a>
+          <div className="faq-grid">
+            {faqItems.map((item) => (
+              <article key={item.q} className="faq-card">
+                <h3>{item.q}</h3>
+                <p>{item.a}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="section">
+        <div className="container">
+          <div className="cta">
+            <div>
+              <div className="eyebrow">NEXT STEP</div>
+              <h2>Website first. App later.</h2>
+              <p>
+                This stage keeps the focus on the website. After this, the same
+                visual language can continue into the SafePay mobile app.
+              </p>
+            </div>
+
+            <div className="cta__actions">
+              <a href="#top" className="btn btn--primary">
+                Back to top
+              </a>
+              <a href="mailto:hello@safepay.uz" className="btn btn--secondary">
+                hello@safepay.uz
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
