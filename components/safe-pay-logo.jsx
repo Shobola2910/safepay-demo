@@ -1,16 +1,12 @@
-import Image from 'next/image';
-
 export default function SafePayLogo({ compact = false }) {
   return (
     <div className={`brand-lockup ${compact ? 'brand-lockup--compact' : ''}`}>
-      <Image
-        src="/safepay-wordmark-transparent.png"
-        alt="SafePay.uz"
-        width={compact ? 280 : 420}
-        height={compact ? 64 : 96}
-        priority
-        className="brand-wordmark-image"
-      />
+      <div className="brand-name">
+        <span className="brand-name__safe">Safe</span>
+        <span className="brand-name__pay">Pay</span>
+        <span className="brand-name__uz">.uz</span>
+      </div>
+
       {!compact && (
         <div className="brand-tag">
           Contactless payment for modern everyday life
