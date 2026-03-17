@@ -160,13 +160,13 @@ button {
 }
 
 .interactive {
-  will-change: transform;
+  will-change: auto;
   transition:
-    transform 180ms ease,
     box-shadow 220ms ease,
     border-color 220ms ease,
     background 220ms ease;
-  transform:
+  transform: none;
+}
     translate3d(
       calc(var(--mx) * var(--depth, 0.08)),
       calc(var(--my) * var(--depth, 0.08)),
